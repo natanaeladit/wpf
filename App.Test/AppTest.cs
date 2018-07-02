@@ -8,12 +8,21 @@ namespace App.Test
     public class AppTest
     {
         [TestMethod]
-        public void WhenReadFilesFromFolder_FilesIsRead()
+        public void WhenReadFilesFromFolder_ThenFilesIsRead()
         {
             var path = Path.Combine(Directory.GetCurrentDirectory(), "Test");
             string[] files = InputOutput.ReadFilesFromFolder(path);
 
             Assert.AreEqual(1, files.Length);
+        }
+
+        [TestMethod]
+        public void WhenReadNonExistedFolder_ThenNoFileIsRead()
+        {
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "abcde");
+            string[] files = InputOutput.ReadFilesFromFolder(path);
+
+            Assert.IsNull(files);
         }
 
         [TestMethod]
@@ -28,6 +37,15 @@ namespace App.Test
             var result = InputOutput.ReadFileContent(file);
 
             Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void WhenReadNonExistedFileContent_ThenNoFileIsRead()
+        {
+            var file = "c:\abc\abc.xml";
+            var result = InputOutput.ReadFileContent(file);
+
+            Assert.IsNull(result);
         }
 
         [TestMethod]
@@ -48,6 +66,15 @@ namespace App.Test
             Assert.IsNotNull(obj);
             Assert.IsNotNull(obj.MatchedImage);
             Assert.IsNotNull(obj.capturedImage);
+        }
+
+        [TestMethod]
+        public void WhenGetCustomerInfoRequestFromInvalidXMLString_ThenReturnNullObject()
+        {
+            string xmlString = "<test></test>";
+            CustomerInfoRequest obj = Serializer.GetCustomerInfoRequest(xmlString);
+
+            Assert.IsNull(obj);
         }
     }
 }

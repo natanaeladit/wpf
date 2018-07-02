@@ -30,14 +30,15 @@ namespace App
 
                 if (obj.matchStatus.Equals(Constants.VERIFIED))
                 {
-                    var bitmap = InputOutput.BitmapImageToBitmap(obj.capturedImage);
-                    InputOutput.DrawBitmapWithGreenBorder(bitmap);
-                    obj.capturedImage = InputOutput.BitmapToBitmapImage(bitmap);
+                    //var bitmap = InputOutput.BitmapImageToBitmap(obj.capturedImage);
+                    //InputOutput.DrawBitmapWithGreenBorder(bitmap);
+                    //obj.capturedImage = InputOutput.BitmapToBitmapImage(bitmap);
                 }
             }
             catch
             {
                 // Log error
+                return null;
             }
             return obj;
         }

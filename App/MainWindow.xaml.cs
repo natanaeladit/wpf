@@ -47,7 +47,8 @@ namespace App
                 string xmlInputData = InputOutput.ReadFileContent(file);
 
                 CustomerInfoRequest obj = Serializer.GetCustomerInfoRequest(xmlInputData);
-                custInfoList.Add(obj);
+                if (obj != null)
+                    custInfoList.Add(obj);
             }
 
             if (custInfoList.Count > 0)
