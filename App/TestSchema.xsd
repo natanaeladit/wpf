@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:element name="SOAP-ENV:Envelope">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="SOAP-ENV:Header"></xs:element>
+        <xs:element name="SOAP-ENV:Body">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CustomerInfoRequest">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="externalId" type="xs:string"></xs:element>
+                    <xs:element name="person_id" type="xs:int"></xs:element>
+                    <xs:element name="ProcessedFrames" type="xs:int"></xs:element>
+                    <xs:element name="head_id" type="xs:int"></xs:element>
+                    <xs:element name="stream_type" type="xs:string"></xs:element>
+                    <xs:element name="conn_info" type="xs:int"></xs:element>
+                    <xs:element name="stream_index" type="xs:int"></xs:element>
+                    <xs:element name="VerificationThreshold" type="xs:double"></xs:element>
+                    <xs:element name="FrameNumber" type="xs:int"></xs:element>
+                    <xs:element name="CapturedTime" type="xs:dateTime"></xs:element>
+                    <xs:element name="NumOfRankedResults" type="xs:int"></xs:element>
+                    <xs:element name="Image1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="externalId" type="xs:string"></xs:element>
+                          <xs:element name="person_id" type="xs:int"></xs:element>
+                          <xs:element name="image_id" type="xs:int"></xs:element>
+                          <xs:element name="DateTime" type="xs:string"></xs:element>
+                          <xs:element name="Confidence" type="xs:double"></xs:element>
+                          <xs:element name="Focus" type="xs:double"></xs:element>
+                          <xs:element name="EyePositions">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="RightEye">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="x" type="xs:double"></xs:element>
+                                      <xs:element name="y" type="xs:double"></xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="LeftEye">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="x" type="xs:int"></xs:element>
+                                      <xs:element name="y" type="xs:double"></xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="FaceBox">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Valid" type="xs:string"></xs:element>
+                                <xs:element name="BotLeft">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="x" type="xs:double"></xs:element>
+                                      <xs:element name="y" type="xs:double"></xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="TopRight">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="x" type="xs:double"></xs:element>
+                                      <xs:element name="y" type="xs:double"></xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="ConfidenceScore" type="xs:double"></xs:element>
+                          <xs:element name="matchStatus" type="xs:string"></xs:element>
+                          <xs:element name="capturedImage" type="xs:string">
+                            <xs:complexType>
+                              <xs:attribute name="xmlns" type="xs:string"></xs:attribute>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="MatchedPersonImage" type="xs:string">
+                            <xs:complexType>
+                              <xs:attribute name="xmlns" type="xs:string"></xs:attribute>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="MatchedImage" type="xs:string">
+                            <xs:complexType>
+                              <xs:attribute name="xmlns" type="xs:string"></xs:attribute>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="xmlns:SOAP-ENV" type="xs:string"></xs:attribute>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

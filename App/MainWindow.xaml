@@ -1,0 +1,38 @@
+﻿<Window x:Class="App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:App"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TextBox HorizontalAlignment="Left" Height="23" Name="TextBoxFolder" Margin="75,52,0,0" TextWrapping="Wrap" Text="D:\xml" VerticalAlignment="Top" Width="327"/>
+        <Button Content="Read Folder" HorizontalAlignment="Left" Margin="418,52,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.348,0.435" Click="Button_Click"/>
+        <Label Content="Folder" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.101,0.403"/>
+        <DataGrid x:Name="itemDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Items}" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="0,80,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="externalId" Binding="{Binding externalId}" Header="externalId" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="image_id" Binding="{Binding image_id}" Header="image_id" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="DateTime" Binding="{Binding DateTime}" Header="DateTime" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="ConfidenceScore" Binding="{Binding ConfidenceScore}" Header="ConfidenceScore" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="matchStatus" Binding="{Binding matchStatus}" Header="matchStatus" Width="SizeToHeader"/>
+                <DataGridTemplateColumn Header="capturedImage" Width="SizeToCells" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding capturedImage}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="MatchedImage" Width="SizeToCells" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding MatchedImage}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Image HorizontalAlignment="Left" Height="82" Margin="560,10,0,0" VerticalAlignment="Top" Width="100" Name="Image1"/>
+    </Grid>
+</Window>
