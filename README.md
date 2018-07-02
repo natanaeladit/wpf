@@ -1,5 +1,5 @@
 # wpf
-a simple wpf application to read xml soap file
+a simple wpf application to read xml soap files from a specific folder
 
 # how to run
 specify a folder path containing xml files (with a specific format)
